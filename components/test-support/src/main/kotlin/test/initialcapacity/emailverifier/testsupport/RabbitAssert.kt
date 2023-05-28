@@ -8,6 +8,14 @@ import kotlin.test.fail
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.milliseconds
 
+/**
+ * Suspends the execution until a message is received from the specified RabbitMQ queue
+ * and asserts that the received message matches the expected message.
+ *
+ * @param queue The RabbitMQ queue to receive the message from.
+ * @param message The expected message to be received.
+ * @param timeout The timeout duration to wait for the message (default: 50 milliseconds).
+ */
 suspend fun ConnectionFactory.assertMessageReceived(
     queue: RabbitQueue,
     message: String,
